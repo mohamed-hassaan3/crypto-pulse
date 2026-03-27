@@ -49,10 +49,12 @@
 }
 
 body {
-  font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+  font-family: var(--font-space-grotesk), Arial, Helvetica, sans-serif;
 }
 
 :root {
+  --primary-color: #1B2028;
+  --secondary-color: #9E9E9E;
   --background: oklch(1 0 0);
   --foreground: oklch(0.145 0 0);
   --card: oklch(1 0 0);
@@ -131,4 +133,17 @@ body {
   html {
     @apply font-sans;
   }
+  header{
+    padding:  24px;
+    margin-bottom: 12px;
+  }
+  footer {
+    margin-top: 12px;
+    padding: 24px;
+    border-top: thin solid #464343;
+  }
+  main {
+    padding: 24px;
+  }
+  
 }
