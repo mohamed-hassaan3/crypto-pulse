@@ -1,6 +1,9 @@
+import Landing from "@/pages/Landing";
 
 export default function Home() {
   return (
-   <main>Hello Crypto</main>
+    <main className="min-h-full flex flex-col h-dvh">
+      <Landing />
+    </main>
   );
 }
