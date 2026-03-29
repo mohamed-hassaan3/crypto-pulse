@@ -1,10 +1,12 @@
 import DataTable from '@/components/DataTable'
-import { columns } from '@/constant/columns'
+import { columns } from '@/constants/columns'
+import type { TrendingCoinRow } from '@/types/trending'
 
 const TrendingCoins = () => {
+  const data: TrendingCoinRow[] = []
   return (
     <div>
-      <DataTable columns={columns} data={[]} rowKey={(coin) => coin.item.id} />
+      <DataTable columns={columns} data={data} rowKey={(coin) => coin.item.id} />
     </div>
   )
 }

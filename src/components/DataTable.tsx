@@ -6,6 +6,7 @@ import {
     TableHeader,
     TableRow,
 } from "@/components/ui/table"
+import type { DataTableProps } from "@/types/data-table"
 import { cn } from "@/lib/utils"
 
 const DataTable = <T,>({ columns, data, rowKey, tableClassName, headerClassName, headerRowClassName, headerCellClassName, bodyRowClassName, bodyCellClassName }: DataTableProps<T>) => {
