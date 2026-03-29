@@ -1,10 +1,11 @@
+import { cn } from '@/lib/utils'
 import CoinOverview from '@/widgets/CoinOverview'
 import TopCategories from '@/widgets/TopCategories'
 import TrendingCoins from '@/widgets/TrendingCoins'
 
 const Landing = () => {
     return (
-        <article className='grid md:grid-cols-3 grid-cols-1 gap-4'>
+        <article className={cn("grid md:grid-cols-3 grid-cols-1 gap-4 home-grid", "home-grid")}>
             <section className='md:col-span-2 border  p-4 bg-(--primary-color) rounded-sm'>
                 <CoinOverview />
             </section>

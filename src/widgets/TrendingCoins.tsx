@@ -1,8 +1,11 @@
-import React from 'react'
+import DataTable from '@/components/DataTable'
+import { columns } from '@/constant/columns'
 
 const TrendingCoins = () => {
   return (
-    <div>TrendingCoins</div>
+    <div>
+      <DataTable columns={columns} data={[]} rowKey={(coin) => coin.item.id} />
+    </div>
   )
 }
 
