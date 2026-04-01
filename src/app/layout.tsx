@@ -4,7 +4,7 @@ import "./globals.css";
 import { cn } from "@/lib/utils";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-
+import { Analytics } from "@vercel/analytics/next"
 const geist = Geist({ subsets: ['latin'], variable: '--font-sans' });
 
 const spaceGrotesk = Space_Grotesk({
@@ -35,6 +35,8 @@ export default function RootLayout({
       <body className="md:w-[90%] w-full m-auto dark">
         <Header />
         {children}
+        {/* Add the Analytics component to project By Vercel */}
+        <Analytics />
         <Footer />
       </body>
     </html>
