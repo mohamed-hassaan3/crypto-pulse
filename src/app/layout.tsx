@@ -1,10 +1,9 @@
 import type { Metadata } from "next";
 import { Space_Grotesk, Geist_Mono, Geist } from "next/font/google";
 import "./globals.css";
-import { cn } from "@/lib/utils";
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
+import { cn } from "@/shared/lib/utils";
 import { Analytics } from "@vercel/analytics/next"
+import { Footer, Header } from "@/shared/ui";
 const geist = Geist({ subsets: ['latin'], variable: '--font-sans' });
 
 const spaceGrotesk = Space_Grotesk({

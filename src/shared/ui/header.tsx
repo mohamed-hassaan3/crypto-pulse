@@ -1,7 +1,7 @@
 import { Search } from 'lucide-react'
 import Link from 'next/link'
 
-const Header = () => {
+export const Header = () => {
   return (
     <header className='flex items-center justify-between '>
         <div>
@@ -20,5 +20,3 @@ const Header = () => {
     </header>
   )
 }
-
-export default Header
