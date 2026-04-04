@@ -1,15 +1,15 @@
-import { formatCurrency, formatPercentage } from "@/lib/format"
-import { cn } from "@/lib/utils"
-import { ColumnsDataTable } from "@/types/data-table"
-import { TrendingCoinRow } from "@/types/trending"
-import { TrendingDown, TrendingUp } from "lucide-react"
-import Image from "next/image"
-import Link from "next/link"
+import { formatCurrency, formatPercentage } from '@/shared/lib/format'
+import { cn } from '@/shared/lib/utils'
+import { ColumnsDataTable } from '@/shared/types/data-table'
+import { TrendingDown, TrendingUp } from 'lucide-react'
+import Image from 'next/image'
+import Link from 'next/link'
+import type { TrendingCoinRow } from '../model/types'
 
-export const columns: ColumnsDataTable<TrendingCoinRow>[] = [
+export const trendingCoinColumns: ColumnsDataTable<TrendingCoinRow>[] = [
   {
-    header: "Name",
-    cellClassName: "name-cell",
+    header: 'Name',
+    cellClassName: 'name-cell',
     cell: (coin) => {
       const item = coin.item
 
@@ -22,14 +22,14 @@ export const columns: ColumnsDataTable<TrendingCoinRow>[] = [
     },
   },
   {
-    header: "24h Change",
-    cellClassName: "change-cell",
+    header: '24h Change',
+    cellClassName: 'change-cell',
     cell: (coin) => {
       const item = coin.item
       const isTrendingUp = item.data.price_change_percentage_24h.usd > 0
 
       return (
-        <div className={cn("price-change", isTrendingUp ? "text-green-500" : "text-red-500")}>
+        <div className={cn('price-change', isTrendingUp ? 'text-green-500' : 'text-red-500')}>
           <p className="flex items-center">
             {formatPercentage(item.data.price_change_percentage_24h.usd)}
             {isTrendingUp ? (
@@ -43,8 +43,8 @@ export const columns: ColumnsDataTable<TrendingCoinRow>[] = [
     },
   },
   {
-    header: "Price",
-    cellClassName: "price-cell",
+    header: 'Price',
+    cellClassName: 'price-cell',
     cell: (coin) => formatCurrency(coin.item.data.price),
   },
 ]

@@ -1,6 +1,6 @@
 import Image from 'next/image'
 
-const CoinOverview = () => {
+export const CoinOverview = () => {
   return (
     <div>
       <div className='flex gap-3'>
@@ -16,5 +16,3 @@ const CoinOverview = () => {
     </div>
   )
 }
-
-export default CoinOverview

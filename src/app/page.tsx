@@ -1,8 +1,8 @@
-import Landing from "@/pages/Landing";
+import { Landing } from '@/views'
 
 export default function Home() {
   return (
-    <main className="min-h-full flex flex-col h-dvh">
+    <main className="">
       <Landing />
     </main>
   );
