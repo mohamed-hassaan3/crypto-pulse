@@ -159,19 +159,26 @@ header {
     @apply flex h-full items-center;
 
     .nav-link {
-      @apply px-6 py-5 flex items-center transition-all hover:text-white font-medium h-full text-purple-100 cursor-pointer;
+      @apply px-6 py-5 flex items-center transition-all hover:text-white font-medium h-full text-purple-300 cursor-pointer;
     }
 
     .nav-link.is-active {
       @apply text-white;
     }
-
-    .nav-link.is-home {
-      @apply max-sm:hidden;
-    }
   }
 }
+@layer components {
+  .main-container {
+    @apply py-6 md:py-12 mx-auto px-4 sm:px-6 max-w-360 w-full space-y-6 md:space-y-6;
+  }
+  .container {
+    @apply px-4 sm:px-6 mx-auto max-w-360;
+  }
 
+  .home-grid {
+    @apply grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 items-start lg:items-center gap-6;
+  }
+}
 /* Table Custom Scrollbar */
 .custom-scrollbar [data-slot="table-container"] {
   overflow-y: auto;
@@ -403,8 +410,4 @@ header {
       @apply flex gap-1 items-center text-sm font-medium;
     }
   }
-}
-
-.home-grid {
-  @apply grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 items-start lg:items-center gap-6;
 }
