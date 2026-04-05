@@ -1,8 +1,8 @@
-import { Landing } from '@/views'
+import { Landing } from "@/views";
 
 export default function Home() {
   return (
-    <main className="">
+    <main className="main-container">
       <Landing />
     </main>
   );

@@ -27,7 +27,6 @@ export const Header = () => {
           href="/"
           className={cn("nav-link", {
             "is-active": pathname === "/",
-            "is-home": true,
           })}
         >
           Home
