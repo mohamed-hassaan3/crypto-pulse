@@ -1,12 +1,13 @@
-import { getTrendingCoin, trendingCoinColumns } from '@/entities/trending-coin'
-import { DataTable } from '@/shared/ui'
+import { getTrendingCoin, trendingCoinColumns } from "@/entities/trending-coin";
+import { DataTable } from "@/shared/ui";
 
-export const revalidate = 60
+export const revalidate = 60;
 
 export const TrendingCoin = async () => {
-  const result = await getTrendingCoin()
+  const result = await getTrendingCoin();
+  console.log(result);
   return (
-    <div id='trending-coins'>
+    <div id="trending-coins">
       <h4>Trending Coins</h4>
       <DataTable
         columns={trendingCoinColumns}
@@ -17,5 +18,5 @@ export const TrendingCoin = async () => {
         bodyCellClassName="py-2!"
       />
     </div>
-  )
-}
+  );
+};
