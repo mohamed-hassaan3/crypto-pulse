@@ -5,6 +5,7 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
+  --color-dark-400: #3d4553;
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-sans);
@@ -144,6 +145,30 @@ body {
   }
   main {
     padding: 24px;
+  }
+}
+
+header {
+  @apply border-b border-dark-400 h-20;
+
+  a {
+    @apply mb-0;
+  }
+
+  nav {
+    @apply flex h-full items-center;
+
+    .nav-link {
+      @apply px-6 py-5 flex items-center transition-all hover:text-white font-medium h-full text-purple-100 cursor-pointer;
+    }
+
+    .nav-link.is-active {
+      @apply text-white;
+    }
+
+    .nav-link.is-home {
+      @apply max-sm:hidden;
+    }
   }
 }
 
