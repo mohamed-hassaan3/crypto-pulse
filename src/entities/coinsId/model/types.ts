@@ -11,7 +11,7 @@ interface Ticker {
   trade_url: string;
 }
 
-interface CoinDetailsData {
+export interface CoinDetailsData {
   id: string;
   name: string;
   symbol: string;

@@ -1,4 +1,4 @@
-import { coinDetails } from "@/entities/coinDetails";
+import { coinDetails } from "@/entities/coinsId";
 import { CoinId } from "@/views/coinId";
 
 export default async function page({

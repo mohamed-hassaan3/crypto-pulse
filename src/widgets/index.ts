@@ -1,3 +1,3 @@
-export { CoinOverview } from './CoinOverview'
-export { TopCategories } from './TopCategories'
-export { TrendingCoin } from './trending-coin'
+export { CoinOverview } from "./coinOverview/ui/CoinOverview";
+export { TopCategories } from "./TopCategories";
+export { TrendingCoin } from "./trending-coin";
