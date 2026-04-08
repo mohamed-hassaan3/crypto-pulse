@@ -224,7 +224,7 @@ header {
         }
 
         p {
-          @apply text-sm md:text-base;
+          @apply text-sm md:text-base truncate;
         }
       }
     }

@@ -5,7 +5,6 @@ export const revalidate = 60;
 
 export const TrendingCoin = async () => {
   const result = await getTrendingCoin();
-  console.log(result);
   return (
     <div id="trending-coins">
       <h4>Trending Coins</h4>
