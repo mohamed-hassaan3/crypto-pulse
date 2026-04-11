@@ -1,17 +1,17 @@
 import { getOverviewCoins } from "@/entities/overviewCoins";
 import { formatCurrency } from "@/shared/lib/format";
+import { CandlestickChart } from "@/shared/ui";
 import Image from "next/image";
 
 export const CoinOverview = async () => {
-  const bitcoinOverview = await getOverviewCoins();
+  const bitcoinOverview = await getOverviewCoins("bitcoin");
   if (!bitcoinOverview) return null;
 
   const info = bitcoinOverview.info;
   const chart = bitcoinOverview.chart;
   console.log("INFO", info);
-  console.log("CHART", chart);
   return (
-    <div>
+    <CandlestickChart data={chart} coinId={"bitcoin"}>
       <div className="flex gap-3">
         <Image src={info.image.large} width={50} height={50} alt="coin" />
         <div>
@@ -21,6 +21,7 @@ export const CoinOverview = async () => {
           </h1>
         </div>
       </div>
-    </div>
+      <div></div>
+    </CandlestickChart>
   );
 };
