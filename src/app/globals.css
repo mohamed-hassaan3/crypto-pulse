@@ -202,6 +202,15 @@ header {
   background: #171a34;
 }
 
+@utility no-scrollbar {
+  /* Chrome, Safari and Opera */
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  /* IE, Edge and Firefox */
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
 /* TRENDING COINS TABLE*/
 #trending-coins {
   @apply w-full flex flex-col justify-center h-full py-4 bg-transparent rounded-xl;

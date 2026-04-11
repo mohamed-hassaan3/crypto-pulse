@@ -9,7 +9,7 @@ export const CoinOverview = async () => {
 
   const info = bitcoinOverview.info;
   const chart = bitcoinOverview.chart;
-  console.log("INFO", info);
+
   return (
     <CandlestickChart data={chart} coinId={"bitcoin"}>
       <div className="flex gap-3">
@@ -21,7 +21,6 @@ export const CoinOverview = async () => {
           </h1>
         </div>
       </div>
-      <div></div>
     </CandlestickChart>
   );
 };
