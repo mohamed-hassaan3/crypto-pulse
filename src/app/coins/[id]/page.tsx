@@ -1,5 +1,5 @@
-import { coinDetails } from "@/entities/coinsId";
-import { CoinId } from "@/views/coinId";
+import { CoinId, CoinIdFallback } from "@/views/coinId";
+import { Suspense } from "react";
 
 export default async function page({
   params,
@@ -7,11 +7,11 @@ export default async function page({
   params: Promise<{ id: string }>;
 }) {
   const { id } = await params;
-  const coinIdDetails = await coinDetails(id);
-  console.log("DATA", coinIdDetails);
   return (
     <div>
-      <CoinId id={id} />
+      <Suspense fallback={<CoinIdFallback />}>
+        <CoinId id={id} />
+      </Suspense>
     </div>
   );
 }

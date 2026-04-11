@@ -3,14 +3,17 @@
 import { fetcher } from "@/shared/api/fetcher";
 import type { OverviewCoinData, OverviewCoinOHLCData } from "../model/types";
 
-export const getOverviewCoins = async () => {
+export const getOverviewCoins = async (id: string | number) => {
   try {
     const [info, chart] = await Promise.all([
-      fetcher<OverviewCoinData>("coins/bitcoin"),
-      fetcher<OverviewCoinOHLCData[]>("coins/bitcoin/ohlc", {
-        vs_currency: "usd",
-        days: "1",
-        precision: "full",
+      fetcher<OverviewCoinData>({ endpoint: `coins/${id}` }),
+      fetcher<OverviewCoinOHLCData[]>({
+        endpoint: `coins/${id}/ohlc`,
+        params: {
+          vs_currency: "usd",
+          days: "1",
+          precision: "full",
+        },
       }),
     ]);
 
