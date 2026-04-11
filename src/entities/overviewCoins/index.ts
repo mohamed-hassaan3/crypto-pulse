@@ -1,1 +1,4 @@
-export { getOverviewCoins } from "./api/overviewCoins.action";
+export {
+  getOverviewCoins,
+  getOverviewCoinOHLC,
+} from "./api/overviewCoins.action";
