@@ -1,9 +1,3 @@
-export interface CandlestickChartProps {
-  children: React.ReactNode;
-  coinId: string;
-  data: OverviewCoinOHLCData[];
-}
-
 export interface OverviewCoinData {
   id: string;
   name: string;
@@ -21,30 +15,4 @@ export interface OverviewCoinData {
 
 export type OverviewCoinOHLCData = [number, number, number, number, number];
 
-export interface ChartSectionProps {
-  coinData: {
-    image: { large: string };
-    name: string;
-    symbol: string;
-    market_data: {
-      current_price: { usd: number };
-    };
-  };
-  coinOHLCData: OverviewCoinOHLCData[];
-  coinId: string;
-}
-
-// CHARTS TYPES
-export type ChartPeriodProps = "1d" | "7d" | "1m" | "3m" | "1y" | "max";
-export interface CandleDataProps {
-  time: string;
-  open: number;
-  high: number;
-  low: number;
-  close: number;
-}
-
-export interface ChartsData {
-  label: string;
-  title: string;
-}
+export type OverviewChartPeriod = "1" | "7" | "30" | "90" | "180" | "365";

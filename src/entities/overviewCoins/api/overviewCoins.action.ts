@@ -1,11 +1,15 @@
 "use server";
 
 import { fetcher } from "@/shared/api/fetcher";
-import type { OverviewCoinData, OverviewCoinOHLCData } from "../model/types";
+import type {
+  OverviewChartPeriod,
+  OverviewCoinData,
+  OverviewCoinOHLCData,
+} from "../model/types";
 
 async function fetchCoinOHLC(
   id: string | number,
-  days: string,
+  days: OverviewChartPeriod,
 ): Promise<OverviewCoinOHLCData[]> {
   return fetcher<OverviewCoinOHLCData[]>({
     endpoint: `coins/${id}/ohlc`,
@@ -32,7 +36,10 @@ export const getOverviewCoins = async (id: string | number) => {
   }
 };
 
-export const getOverviewCoinOHLC = async (coinId: string, days: string) => {
+export const getOverviewCoinOHLC = async (
+  coinId: string,
+  days: OverviewChartPeriod,
+) => {
   try {
     return await fetchCoinOHLC(coinId, days);
   } catch (err) {
