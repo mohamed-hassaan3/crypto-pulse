@@ -1,4 +1,4 @@
-import { getTrendingCoin, trendingCoinColumns } from "@/entities/trending-coin";
+import { getTrendingCoin, trendingCoinColumns } from "@/entities/coins";
 import { DataTable } from "@/shared/ui";
 
 export const revalidate = 60;

@@ -1,4 +1,4 @@
-import type { OverviewChartPeriod } from "@/entities/overviewCoins/model/types";
+import type { OverviewChartPeriod } from "@/entities/coins";
 
 export const CHART_PERIODS: Array<{
   label: string;

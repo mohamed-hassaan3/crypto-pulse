@@ -4,6 +4,7 @@ import { ColumnsDataTable } from "@/shared/types/data-table";
 import { TrendingDown, TrendingUp } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import type { TrendingCoinRow } from "../model/types";
 
 export const trendingCoinColumns: ColumnsDataTable<TrendingCoinRow>[] = [
   {

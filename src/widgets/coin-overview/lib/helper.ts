@@ -1,4 +1,4 @@
-import { OverviewCoinOHLCData } from "@/entities/overviewCoins";
+import { OverviewCoinOHLCData } from "@/entities/coins";
 import { UTCTimestamp } from "lightweight-charts";
 
 export function toCandlePoints(rows: OverviewCoinOHLCData[]) {
