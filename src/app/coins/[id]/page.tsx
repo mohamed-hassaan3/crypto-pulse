@@ -1,4 +1,4 @@
-import { CoinId, CoinIdFallback } from "@/views/coin-id";
+import { CoinId, CoinIdFallback } from "@/views";
 import { Suspense } from "react";
 
 export default async function page({

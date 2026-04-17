@@ -6,7 +6,6 @@ import {
   createChart,
   type IChartApi,
   type ISeriesApi,
-  type UTCTimestamp,
 } from "lightweight-charts";
 import { useEffect, useRef } from "react";
 import { CandlestickChartProps } from "../types/candlestrick-chart";
