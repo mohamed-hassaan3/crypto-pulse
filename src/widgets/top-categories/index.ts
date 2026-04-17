@@ -1,2 +1,2 @@
-export { TopCategories } from "./ui/TopCategories";
-export { TopCategoriesFallback } from "./ui/TopCategoriesFallback";
+export { TopCategories } from "./ui/top-categories";
+export { TopCategoriesFallback } from "./ui/top-categories-fallback";

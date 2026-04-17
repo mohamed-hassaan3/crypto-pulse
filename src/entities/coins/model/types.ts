@@ -1,3 +1,4 @@
+// Coins ID
 interface Ticker {
   market: {
     name: string;
@@ -58,4 +59,54 @@ export interface CoinDetailsData {
     subreddit_url: string;
   };
   tickers: Ticker[];
+}
+
+// Overview Coins
+export interface OverviewCoinData {
+  id: string;
+  name: string;
+  symbol: string;
+  image: {
+    large: string;
+    small: string;
+  };
+  market_data: {
+    current_price: {
+      usd: number;
+    };
+  };
+}
+
+export type OverviewCoinOHLCData = [number, number, number, number, number];
+
+export type OverviewChartPeriod = "1" | "7" | "30" | "90" | "180" | "365";
+
+// Trending Coins
+export interface TrendingCoinProps {
+  item: {
+    id: string;
+    name: string;
+    symbol: string;
+    market_cap_rank: number;
+    thumb: string;
+    large: string;
+    data: {
+      price: number;
+      price_change_percentage_24h: {
+        usd: number;
+      };
+    };
+  };
+}
+
+export interface TrendingCoinRow {
+  item: {
+    id: string;
+    name: string;
+    large: string;
+    data: {
+      price: number;
+      price_change_percentage_24h: { usd: number };
+    };
+  };
 }

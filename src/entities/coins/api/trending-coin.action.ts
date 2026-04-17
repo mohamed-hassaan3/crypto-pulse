@@ -1,5 +1,6 @@
 "use server";
 import { fetcher } from "@/shared/api/fetcher";
+import type { TrendingCoinProps } from "../model/types";
 
 export const getTrendingCoin = async (): Promise<{
   coins: TrendingCoinProps[];

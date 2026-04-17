@@ -1,2 +1,2 @@
 export { Landing } from "./landing";
-export { CoinId } from "./coinId";
+export { CoinId } from "./coin-id";

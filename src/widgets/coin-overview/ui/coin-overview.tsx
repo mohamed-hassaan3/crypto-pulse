@@ -1,5 +1,5 @@
-import { getOverviewCoins } from "@/entities/overviewCoins";
-import { CoinOverviewClient } from "./CoinOverviewClient";
+import { getOverviewCoins } from "@/entities/coins";
+import { CoinOverviewClient } from "./coin-overview-client";
 
 export const CoinOverview = async () => {
   const bitcoinOverview = await getOverviewCoins("bitcoin");

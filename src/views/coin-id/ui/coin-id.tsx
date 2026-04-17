@@ -1,4 +1,4 @@
-import { coinDetails } from "@/entities/coinsId";
+import { coinDetails } from "@/entities/coins";
 
 export const CoinId = async ({ id }: { id: string }) => {
   const details = await coinDetails(id);

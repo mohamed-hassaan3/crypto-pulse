@@ -1,2 +1,2 @@
-export { TrendingCoin } from "./ui/TrendingCoin";
-export { TrendingCoinFallback } from "./ui/TrendingCoinFallback";
+export { TrendingCoin } from "./ui/trending-coin";
+export { TrendingCoinFallback } from "./ui/trending-coin-fallback";
