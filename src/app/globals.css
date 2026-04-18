@@ -254,7 +254,7 @@ header {
 
 /* CATEGORIES TABLE */
 #categories {
-  @apply pt-8 mt-5 w-full bg-transparent  rounded-xl overflow-hidden;
+  @apply pt-8 mt-5 w-full  rounded-xl overflow-hidden;
 
   h4 {
     @apply text-xl md:text-2xl font-semibold mb-2 pl-5;
