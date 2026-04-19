@@ -52,7 +52,7 @@ export function CoinOverviewClient({
   );
 
   return (
-    <article>
+    <article id="categories" className="custom-scrollbar">
       <section className="flex flex-col gap-12 md:flex-row md:items-end md:justify-between">
         <div className="flex gap-3">
           <Image
