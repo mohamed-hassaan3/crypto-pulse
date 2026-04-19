@@ -1,10 +1,11 @@
 import { cn } from "@/shared/lib/utils";
-import {
-  CoinOverviewFallback,
-  TopCategoriesFallback,
-  TrendingCoinFallback,
-} from "@/widgets";
+
 import dynamic from "next/dynamic";
+import {
+  CategoriesFallback,
+  CoinOverviewFallback,
+  TrendingCoinsFallback,
+} from "./fallback";
 
 const CoinOverview = dynamic(
   () => import("@/widgets").then((mod) => mod.CoinOverview),
@@ -15,13 +16,13 @@ const CoinOverview = dynamic(
 const TopCategories = dynamic(
   () => import("@/widgets").then((mod) => mod.TopCategories),
   {
-    loading: () => <TopCategoriesFallback />,
+    loading: () => <CategoriesFallback />,
   },
 );
 const TrendingCoin = dynamic(
   () => import("@/widgets").then((mod) => mod.TrendingCoin),
   {
-    loading: () => <TrendingCoinFallback />,
+    loading: () => <TrendingCoinsFallback />,
   },
 );
 

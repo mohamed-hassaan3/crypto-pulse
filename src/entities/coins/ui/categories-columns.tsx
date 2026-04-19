@@ -11,11 +11,7 @@ export const categoriesColumns: ColumnsDataTable<CategoryRow>[] = [
     header: "Category",
     cellClassName: "name-cell",
     cell: (category) => {
-      return (
-        <Link href={`/categories/${category.id}`}>
-          <p>{category.name}</p>
-        </Link>
-      );
+      return <p>{category.name}</p>;
     },
   },
   {
@@ -26,15 +22,14 @@ export const categoriesColumns: ColumnsDataTable<CategoryRow>[] = [
       const topIdCategories = category.top_3_coins_id;
       return (
         <div className="top-gainers-cell">
-          {topImgCategories.map((singleImg) => (
-            <Image
-              key={singleImg}
-              src={singleImg}
-              alt={singleImg}
-              width={22}
-              height={22}
-            />
-          ))}
+          {topImgCategories.map((singleImg, index) => {
+            const idMatchingImg = topIdCategories[index];
+            return (
+              <Link key={singleImg} href={`coins/${idMatchingImg}`}>
+                <Image src={singleImg} alt={singleImg} width={22} height={22} />
+              </Link>
+            );
+          })}
         </div>
       );
     },
