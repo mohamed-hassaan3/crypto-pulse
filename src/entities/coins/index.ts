@@ -1,4 +1,5 @@
-export { coinDetails } from "./api/coin-id.action";
+export { getCoinDetails } from "./api/coin-id.action";
+export { getCoinOHLC } from "./api/coin-id.action";
 export {
   getOverviewCoins,
   getOverviewCoinOHLC,

@@ -1,14 +1,19 @@
-import { getOverviewCoins } from "@/entities/coins";
+import { getOverviewCoinOHLC, getOverviewCoins } from "@/entities/coins";
 import { CoinOverviewClient } from "./coin-overview-client";
 
 export const CoinOverview = async () => {
   const bitcoinOverview = await getOverviewCoins("bitcoin");
-  if (!bitcoinOverview) return null;
-
-  const info = bitcoinOverview.info;
-  const chart = bitcoinOverview.chart;
+  const bitcoinOverviewChart = await getOverviewCoinOHLC(
+    bitcoinOverview?.id,
+    "1",
+  );
+  if (!bitcoinOverview || !bitcoinOverviewChart) return null;
 
   return (
-    <CoinOverviewClient coinId="bitcoin" info={info} initialChartData={chart} />
+    <CoinOverviewClient
+      coinId="bitcoin"
+      info={bitcoinOverview}
+      initialChartData={bitcoinOverviewChart}
+    />
   );
 };

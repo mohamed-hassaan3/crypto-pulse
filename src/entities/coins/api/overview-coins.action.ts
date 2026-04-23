@@ -7,10 +7,10 @@ import type {
   OverviewCoinOHLCData,
 } from "../model/types";
 
-async function fetchCoinOHLC(
-  id: string | number,
+export const getOverviewCoinOHLC = async (
+  id: string | undefined,
   days: OverviewChartPeriod,
-): Promise<OverviewCoinOHLCData[]> {
+): Promise<OverviewCoinOHLCData[]> => {
   return fetcher<OverviewCoinOHLCData[]>({
     endpoint: `coins/${id}/ohlc`,
     params: {
@@ -19,32 +19,14 @@ async function fetchCoinOHLC(
       precision: "full",
     },
   });
-}
+};
 
 export const getOverviewCoins = async (id: string | number) => {
   try {
-    const [info, chart] = await Promise.all([
-      fetcher<OverviewCoinData>({ endpoint: `coins/${id}` }),
-      fetchCoinOHLC(id, "1"),
-    ]);
-
-    return { info, chart };
+    return await fetcher<OverviewCoinData>({ endpoint: `coins/${id}` });
   } catch (err) {
     if (err instanceof Error) {
       console.error("OVERVIEW ERROR:", err);
-    }
-  }
-};
-
-export const getOverviewCoinOHLC = async (
-  coinId: string,
-  days: OverviewChartPeriod,
-) => {
-  try {
-    return await fetchCoinOHLC(coinId, days);
-  } catch (err) {
-    if (err instanceof Error) {
-      console.error("OHLC ERROR:", err);
     }
   }
 };

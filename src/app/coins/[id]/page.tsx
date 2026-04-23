@@ -1,5 +1,4 @@
-import { CoinId, CoinIdFallback } from "@/views";
-import { Suspense } from "react";
+import { CoinId } from "@/views";
 
 export default async function page({
   params,
@@ -8,10 +7,8 @@ export default async function page({
 }) {
   const { id } = await params;
   return (
-    <div>
-      <Suspense fallback={<CoinIdFallback />}>
-        <CoinId id={id} />
-      </Suspense>
-    </div>
+    <main>
+      <CoinId id={id} />
+    </main>
   );
 }
