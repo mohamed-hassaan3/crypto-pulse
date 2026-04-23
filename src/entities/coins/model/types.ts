@@ -22,6 +22,7 @@ export interface InfoDataProps {
   community_data: CommunityData;
   last_updated: string;
   tickers: Ticker[];
+  treasury_coins?: number | null;
 }
 export interface Description {
   en: string;
@@ -57,6 +58,8 @@ export interface MarketData {
   max_supply: number;
   circulating_supply: number;
   last_updated: string;
+  total_value_locked?: TotalValueLocked | null;
+  price_change_percentage_24h_in_currency?: PriceChangePercentage24hInCurrency;
 }
 export interface CurrentPrice {
   usd: number;
@@ -68,6 +71,14 @@ export interface FullyDilutedValuation {
   usd: number;
 }
 export interface TotalVolume {
+  usd: number;
+}
+
+export interface TotalValueLocked {
+  usd: number;
+}
+
+export interface PriceChangePercentage24hInCurrency {
   usd: number;
 }
 export interface CommunityData {

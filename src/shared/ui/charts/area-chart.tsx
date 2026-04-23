@@ -1,22 +1,19 @@
 "use client";
 
 import {
-  CandlestickSeries,
+  AreaSeries,
   ColorType,
   createChart,
   type IChartApi,
   type ISeriesApi,
 } from "lightweight-charts";
 import { useEffect, useRef } from "react";
-import { CandlestickChartProps } from "../types/candlestrick-chart";
+import type { AreaChartProps } from "@/shared/types/charts";
 
-export function CandlestickChart({
-  data,
-  height = 400,
-}: CandlestickChartProps) {
+export function AreaChart({ data, height = 360 }: AreaChartProps) {
   const chartContainerRef = useRef<HTMLDivElement | null>(null);
   const chartRef = useRef<IChartApi | null>(null);
-  const seriesRef = useRef<ISeriesApi<"Candlestick"> | null>(null);
+  const seriesRef = useRef<ISeriesApi<"Area"> | null>(null);
 
   useEffect(() => {
     const el = chartContainerRef.current;
@@ -38,16 +35,14 @@ export function CandlestickChart({
         },
       },
     });
-    chartRef.current = chart;
 
-    const series = chart.addSeries(CandlestickSeries, {
-      upColor: "#22c55e",
-      downColor: "#ef4444",
-      borderVisible: false,
-      wickUpColor: "#22c55e",
-      wickDownColor: "#ef4444",
+    chartRef.current = chart;
+    seriesRef.current = chart.addSeries(AreaSeries, {
+      lineColor: "#60A5FA",
+      topColor: "rgba(96, 165, 250, 0.35)",
+      bottomColor: "rgba(96, 165, 250, 0.04)",
+      lineWidth: 2,
     });
-    seriesRef.current = series;
 
     const handleResize = () => {
       chart.applyOptions({
@@ -59,17 +54,27 @@ export function CandlestickChart({
 
     return () => {
       window.removeEventListener("resize", handleResize);
-      chartRef.current = null;
       seriesRef.current = null;
+      chartRef.current = null;
       chart.remove();
     };
   }, [height]);
 
   useEffect(() => {
-    seriesRef.current?.setData(data);
-    seriesRef.current?.priceScale().applyOptions({
-      autoScale: true,
+    const firstValue = data[0]?.value ?? 0;
+    const lastValue = data[data.length - 1]?.value ?? 0;
+    const isUpTrend = lastValue >= firstValue;
+
+    seriesRef.current?.applyOptions({
+      lineColor: isUpTrend ? "#22c55e" : "#ef4444",
+      topColor: isUpTrend
+        ? "rgba(34, 197, 94, 0.35)"
+        : "rgba(239, 68, 68, 0.35)",
+      bottomColor: isUpTrend
+        ? "rgba(34, 197, 94, 0.04)"
+        : "rgba(239, 68, 68, 0.04)",
     });
+    seriesRef.current?.setData(data);
     chartRef.current?.timeScale().fitContent();
   }, [data]);
 

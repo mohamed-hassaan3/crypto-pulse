@@ -1,5 +1,6 @@
 import { UTCTimestamp } from "lightweight-charts";
 
+// CANDLE STRICK CHART
 export interface CandlePoint {
   time: UTCTimestamp;
   open: number;
@@ -10,5 +11,16 @@ export interface CandlePoint {
 
 export interface CandlestickChartProps {
   data: CandlePoint[];
+  height?: number;
+}
+
+// AREA CHART
+export interface AreaPoint {
+  time: UTCTimestamp;
+  value: number;
+}
+
+export interface AreaChartProps {
+  data: AreaPoint[];
   height?: number;
 }
