@@ -27,12 +27,12 @@ export const CoinId = async ({ id }: { id: string }) => {
   }
 
   return (
-    <article className="grid grid-cols-5 gap-2">
-      <aside className="col-span-2 border-r">
+    <article className="grid lg:grid-cols-5 gap-2">
+      <aside className="lg:col-span-2 lg:border-r">
         <CoinInfo infoData={details} />
       </aside>
-      <section className="col-span-3">
-        <CoinAreaChart areaChartData={chartDetails} />
+      <section className="lg:col-span-3">
+        <CoinAreaChart coinId={id} areaChartData={chartDetails} />
       </section>
     </article>
   );

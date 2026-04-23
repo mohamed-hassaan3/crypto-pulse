@@ -4,19 +4,9 @@ import { formatCurrency } from "@/shared/lib/format";
 import { Button, CandlestickChart } from "@/shared/ui";
 import Image from "next/image";
 import { useCallback, useEffect, useState } from "react";
-import { CHART_PERIODS } from "../model/chart-periods";
+import { CHART_PERIODS, CoinOverviewClientProps } from "../model/types";
 import { toCandlePoints } from "../lib/helper";
-import {
-  getOverviewCoinOHLC,
-  OverviewCoinData,
-  OverviewCoinOHLCData,
-} from "@/entities/coins";
-
-interface CoinOverviewClientProps {
-  coinId: string;
-  info: OverviewCoinData;
-  initialChartData: OverviewCoinOHLCData[];
-}
+import { getOverviewCoinOHLC } from "@/entities/coins";
 
 export function CoinOverviewClient({
   coinId,
