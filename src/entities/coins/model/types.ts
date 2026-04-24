@@ -59,7 +59,12 @@ export interface MarketData {
   circulating_supply: number;
   last_updated: string;
   total_value_locked?: TotalValueLocked | null;
-  price_change_percentage_24h_in_currency?: PriceChangePercentage24hInCurrency;
+  price_change_percentage_1h_in_currency?: { usd: number };
+  price_change_percentage_24h_in_currency?: { usd: number };
+  price_change_percentage_7d_in_currency?: { usd: number };
+  price_change_percentage_14d_in_currency?: { usd: number };
+  price_change_percentage_30d_in_currency?: { usd: number };
+  price_change_percentage_1y_in_currency?: { usd: number };
 }
 export interface CurrentPrice {
   usd: number;
