@@ -1,5 +1,6 @@
 import type { InfoDataProps } from "@/entities/coins/model/types";
-import { formatCurrency } from "@/shared/lib/format";
+import { formatCurrency, formatPercentage } from "@/shared/lib/format";
+import { ArrowDown, ArrowUp } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -27,6 +28,9 @@ export const CoinIdInfo = ({ infoData }: { infoData: InfoDataProps }) => {
   const currentPrice = infoData.market_data.current_price.usd;
   const circulatingSupply = infoData.market_data.circulating_supply;
   const totalSupply = infoData.market_data.total_supply;
+  const marketCapPercentage24h = formatPercentage(
+    infoData.market_data.market_cap_change_percentage_24h,
+  );
   const outstandingSupply =
     totalSupply && circulatingSupply
       ? Math.max(totalSupply - circulatingSupply, 0)
@@ -104,9 +108,21 @@ export const CoinIdInfo = ({ infoData }: { infoData: InfoDataProps }) => {
             #{infoData.market_cap_rank}
           </small>
         </div>
-        <p className="text-5xl font-extrabold text-neutral-200">
-          {formatCurrency(infoData.market_data.current_price.usd)}
-        </p>
+        <div className="flex gap-3">
+          <p className="text-5xl font-extrabold text-neutral-200">
+            {formatCurrency(infoData.market_data.current_price.usd)}
+          </p>
+          <small
+            className={`flex items-center ${infoData.market_data.market_cap_change_percentage_24h > 0 ? "text-green-500" : "text-red-500"}`}
+          >
+            {infoData.market_data.market_cap_change_percentage_24h > 0 ? (
+              <ArrowUp size={16} />
+            ) : (
+              <ArrowDown size={16} />
+            )}
+            {marketCapPercentage24h}
+          </small>
+        </div>
       </div>
 
       <div className="space-y-3">
