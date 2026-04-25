@@ -1,9 +1,12 @@
-import React from 'react'
+import { Coins } from "@/views";
+import React from "react";
 
 const page = () => {
   return (
-    <main className=' h-svh'>Coins...</main>
-  )
-}
+    <main className="">
+      <Coins />
+    </main>
+  );
+};
 
-export default page
+export default page;
