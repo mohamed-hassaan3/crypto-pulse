@@ -201,7 +201,9 @@ header {
 .custom-scrollbar [data-slot="table-container"]::-webkit-scrollbar-thumb:hover {
   background: #171a34;
 }
-
+.heading-title {
+  @apply text-xl md:text-2xl font-semibold mb-2 px-5;
+}
 @utility no-scrollbar {
   /* Chrome, Safari and Opera */
   &::-webkit-scrollbar {
