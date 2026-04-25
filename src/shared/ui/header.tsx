@@ -10,7 +10,9 @@ export const Header = () => {
   return (
     <header className="flex items-center justify-between ">
       <div>
-        <h3 className=" font-extrabold text-xl">CryptoPulse</h3>
+        <Link href={"/"} className=" font-extrabold text-xl">
+          CryptoPulse
+        </Link>
       </div>
       <div className="relative flex items-center">
         <div className=" absolute right-5 sm:block hidden ">
@@ -35,7 +37,7 @@ export const Header = () => {
           href="/coins"
           className={cn("nav-link", { "is-active": pathname === "/coins" })}
         >
-          Coins
+          All Coins
         </Link>
       </nav>
     </header>

@@ -39,7 +39,7 @@ export const PercentageTable = ({ infoData }: { infoData: InfoDataProps }) => {
   ];
 
   return (
-    <Table className="rounded-3xl border">
+    <Table className="border">
       <TableHeader>
         <TableRow>
           {percentageData.map((item) => (
@@ -53,7 +53,7 @@ export const PercentageTable = ({ infoData }: { infoData: InfoDataProps }) => {
         </TableRow>
       </TableHeader>
       <TableBody>
-        <TableRow>
+        <TableRow className=" hover:bg-transparent">
           {percentageData.map((item) => {
             const isMissing = item.value === undefined || item.value === null;
             const isPositive = (item.value ?? 0) > 0;
@@ -70,7 +70,7 @@ export const PercentageTable = ({ infoData }: { infoData: InfoDataProps }) => {
                 }`}
               >
                 {isMissing ? (
-                  "N/A"
+                  "-"
                 ) : (
                   <>
                     {isPositive ? (

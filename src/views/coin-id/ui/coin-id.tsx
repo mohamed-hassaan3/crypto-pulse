@@ -1,7 +1,7 @@
 import dynamic from "next/dynamic";
 import { CoinAreaChartFallback, CoinInfoFallback } from "./fallback";
 import { getCoinDetails, getCoinOHLC } from "@/entities/coins";
-import { PercentageTable } from "@/widgets/coin-id";
+import { CoinIdAbout, PercentageTable } from "@/widgets/coin-id";
 
 const CoinInfo = dynamic(
   () => import("@/widgets").then((mod) => mod.CoinIdInfo),
@@ -35,6 +35,7 @@ export const CoinId = async ({ id }: { id: string }) => {
       <section className="lg:col-span-3 space-y-6">
         <CoinAreaChart coinId={id} areaChartData={chartDetails} />
         <PercentageTable infoData={details} />
+        <CoinIdAbout infoData={details} />
       </section>
     </article>
   );
