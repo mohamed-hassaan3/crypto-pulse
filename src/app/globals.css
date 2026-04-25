@@ -159,11 +159,11 @@ header {
     @apply flex h-full items-center;
 
     .nav-link {
-      @apply px-6 py-5 flex items-center transition-all hover:text-white font-medium h-full text-purple-300 cursor-pointer;
+      @apply px-6 py-5 flex items-center transition-all hover:text-neutral-500 font-medium h-full text-white cursor-pointer;
     }
 
     .nav-link.is-active {
-      @apply text-white;
+      @apply text-neutral-500  underline;
     }
   }
 }

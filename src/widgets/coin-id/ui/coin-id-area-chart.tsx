@@ -51,8 +51,8 @@ export const CoinIdAreaChart = ({
   };
 
   return (
-    <section className="space-y-4">
-      <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
+    <article className="space-y-4">
+      <aside className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
         <h4 className="text-lg font-semibold">Coin Chart</h4>
         <div className="flex gap-2 overflow-x-auto no-scrollbar">
           {CHART_PERIODS.map((item) => (
@@ -72,8 +72,8 @@ export const CoinIdAreaChart = ({
             </Button>
           ))}
         </div>
-      </div>
+      </aside>
       <AreaChart data={toAreaPoints(chartData)} height={360} />
-    </section>
+    </article>
   );
 };

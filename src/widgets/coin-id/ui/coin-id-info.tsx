@@ -90,8 +90,8 @@ export const CoinIdInfo = ({ infoData }: { infoData: InfoDataProps }) => {
   ];
 
   return (
-    <section className="space-y-6 pr-6">
-      <div className="space-y-4">
+    <article className="space-y-6 pr-6">
+      <aside className="space-y-4">
         <div className="flex items-center gap-2">
           <Image
             src={infoData.image.small}
@@ -123,9 +123,9 @@ export const CoinIdInfo = ({ infoData }: { infoData: InfoDataProps }) => {
             {marketCapPercentage24h}
           </small>
         </div>
-      </div>
+      </aside>
 
-      <div className="space-y-3">
+      <aside className="space-y-3">
         {metrics.map((metric) => (
           <div
             key={metric.label}
@@ -137,7 +137,7 @@ export const CoinIdInfo = ({ infoData }: { infoData: InfoDataProps }) => {
             </p>
           </div>
         ))}
-      </div>
+      </aside>
 
       <div className="space-y-2">
         <p className="text-neutral-500">Links</p>
@@ -178,15 +178,6 @@ export const CoinIdInfo = ({ infoData }: { infoData: InfoDataProps }) => {
           ) : null}
         </div>
       </div>
-
-      {infoData.description.en ? (
-        <div className="space-y-2">
-          <p className="text-neutral-500">About</p>
-          <p className="line-clamp-6 text-sm leading-6 text-neutral-300">
-            {infoData.description.en.replace(/<[^>]+>/g, " ").trim()}
-          </p>
-        </div>
-      ) : null}
-    </section>
+    </article>
   );
 };
