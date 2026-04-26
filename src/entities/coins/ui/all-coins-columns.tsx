@@ -12,23 +12,23 @@ import Link from "next/link";
 export const allCoinsColumns: ColumnsDataTable<AllCoinsRow>[] = [
   {
     header: "#",
-    headClassName: "sticky left-0 z-40 min-w-12 bg-dark-400",
+    headClassName: "sticky left-0 z-40 md:min-w-12 bg-dark-400",
     cellClassName:
-      "rank-cell cell sticky left-0 z-20 min-w-12 bg-(--primary-color)",
+      "rank-cell cell sticky left-0 z-20 md:min-w-12 bg-(--primary-color)",
     cell: (coin) => {
       return <p>{coin.market_cap_rank}</p>;
     },
   },
   {
     header: "Coin",
-    headClassName: "sticky left-12 z-40 min-w-64 bg-dark-400",
+    headClassName: "sticky left-12 z-40 md:min-w-64 bg-dark-400",
     cellClassName:
-      "coins-cell cell sticky left-12 z-20 min-w-64 bg-(--primary-color)",
+      "coins-cell cell sticky left-12 z-20 md:min-w-64 bg-(--primary-color)",
     cell: (coin) => {
       return (
         <Link
           href={`/coins/${coin.id}`}
-          className="flex gap-0.5 max-w-40 items-center gap-2 overflow-hidden"
+          className="flex max-w-40 items-center gap-2 overflow-hidden"
         >
           <Image src={coin.image} width={20} height={20} alt={coin.name} />
           <p className="truncate text-[14px] font-semibold">{coin.name}</p>
@@ -53,11 +53,16 @@ export const allCoinsColumns: ColumnsDataTable<AllCoinsRow>[] = [
     cellClassName: "rate-cell cell min-w-24",
     cell: (coin) => {
       const isRatingUp = coin.price_change_percentage_1h_in_currency > 0;
-      return (
+      const isMissing =
+        coin.price_change_percentage_1h_in_currency === undefined ||
+        coin.price_change_percentage_1h_in_currency === null;
+      return isMissing ? (
+        <p className="text-center">-</p>
+      ) : (
         <p
           className={`flex gap-0.5 ${isRatingUp ? "text-green-500" : "text-red-500"}`}
         >
-          {isRatingUp ? <TrendingUp size={16} /> : <TrendingDown size={16} />}{" "}
+          {isRatingUp ? <TrendingUp size={16} /> : <TrendingDown size={16} />}
           <span>
             {formatPercentage(coin.price_change_percentage_1h_in_currency)}
           </span>
@@ -71,7 +76,12 @@ export const allCoinsColumns: ColumnsDataTable<AllCoinsRow>[] = [
     cellClassName: "rate-cell cell min-w-24",
     cell: (coin) => {
       const isRatingUp = coin.price_change_percentage_24h > 0;
-      return (
+      const isMissing =
+        coin.price_change_percentage_24h === undefined ||
+        coin.price_change_percentage_24h === null;
+      return isMissing ? (
+        <p className="text-center">-</p>
+      ) : (
         <p
           className={`flex gap-0.5 ${isRatingUp ? "text-green-500" : "text-red-500"}`}
         >
@@ -87,7 +97,13 @@ export const allCoinsColumns: ColumnsDataTable<AllCoinsRow>[] = [
     cellClassName: "rate-cell cell min-w-24",
     cell: (coin) => {
       const isRatingUp = coin.price_change_percentage_7d_in_currency > 0;
-      return (
+      const isMissing =
+        coin.price_change_percentage_7d_in_currency === undefined ||
+        coin.price_change_percentage_7d_in_currency === null;
+
+      return isMissing ? (
+        <p className="text-center">-</p>
+      ) : (
         <p
           className={`flex gap-0.5 ${isRatingUp ? "text-green-500" : "text-red-500"}`}
         >
@@ -105,7 +121,13 @@ export const allCoinsColumns: ColumnsDataTable<AllCoinsRow>[] = [
     cellClassName: "rate-cell cell min-w-24",
     cell: (coin) => {
       const isRatingUp = coin.price_change_percentage_30d_in_currency > 0;
-      return (
+      const isMissing =
+        coin.price_change_percentage_30d_in_currency === undefined ||
+        coin.price_change_percentage_30d_in_currency === null;
+
+      return isMissing ? (
+        <p className="text-center">-</p>
+      ) : (
         <p
           className={`flex gap-0.5 ${isRatingUp ? "text-green-500" : "text-red-500"}`}
         >

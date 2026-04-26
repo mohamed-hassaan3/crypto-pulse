@@ -216,6 +216,7 @@ header {
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
+
 /* TRENDING COINS TABLE*/
 #trending-coins {
   @apply w-full flex flex-col justify-center h-full py-4 bg-transparent rounded-xl;
@@ -427,7 +428,6 @@ header {
 }
 
 /* All Coins Table */
-
 #all-coins-table {
   @apply font-bold border lg:col-span-3 col-span-1  bg-(--primary-color) rounded-sm;
 }

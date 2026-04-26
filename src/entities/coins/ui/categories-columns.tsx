@@ -9,10 +9,11 @@ import Link from "next/link";
 export const categoriesColumns: ColumnsDataTable<CategoryRow>[] = [
   {
     header: "Category",
-    headClassName: "sticky left-0 z-40 min-w-52 bg-dark-400",
-    cellClassName: "name-cell sticky left-0 z-20 min-w-52 bg-(--primary-color)",
+    headClassName: "sticky left-0 z-40 md:min-w-52 bg-dark-400",
+    cellClassName:
+      "name-cell sticky left-0 z-20 md:min-w-52 bg-(--primary-color)",
     cell: (category) => {
-      return <p>{category.name}</p>;
+      return <p className="truncate text-[12px] md:text-md">{category.name}</p>;
     },
   },
   {
