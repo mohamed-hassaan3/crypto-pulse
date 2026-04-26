@@ -203,7 +203,10 @@ export interface AllCoinsRow {
   market_cap: number;
   circulating_supply: number;
   total_supply: number;
+  price_change_percentage_1h_in_currency: number;
   price_change_percentage_24h: number;
+  price_change_percentage_7d_in_currency: number;
+  price_change_percentage_30d_in_currency: number;
   symbol: string;
   current_price: number;
 }

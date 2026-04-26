@@ -35,7 +35,9 @@ export const Header = () => {
         </Link>
         <Link
           href="/coins"
-          className={cn("nav-link", { "is-active": pathname === "/coins" })}
+          className={cn("nav-link text-nowrap", {
+            "is-active": pathname === "/coins",
+          })}
         >
           All Coins
         </Link>

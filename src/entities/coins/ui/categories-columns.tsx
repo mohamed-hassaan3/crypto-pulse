@@ -9,14 +9,16 @@ import Link from "next/link";
 export const categoriesColumns: ColumnsDataTable<CategoryRow>[] = [
   {
     header: "Category",
-    cellClassName: "name-cell",
+    headClassName: "sticky left-0 z-40 min-w-52 bg-dark-400",
+    cellClassName: "name-cell sticky left-0 z-20 min-w-52 bg-(--primary-color)",
     cell: (category) => {
       return <p>{category.name}</p>;
     },
   },
   {
     header: "Top Gainers",
-    cellClassName: "name-cell",
+    headClassName: "min-w-40",
+    cellClassName: "name-cell min-w-40",
     cell: (category) => {
       const topImgCategories = category.top_3_coins;
       const topIdCategories = category.top_3_coins_id;
@@ -36,7 +38,8 @@ export const categoriesColumns: ColumnsDataTable<CategoryRow>[] = [
   },
   {
     header: "24h Change",
-    cellClassName: "change-cell",
+    headClassName: "min-w-32",
+    cellClassName: "change-cell min-w-32",
     cell: (category) => {
       const isTrendingUp = category.market_cap_change_24h > 0;
 
@@ -61,12 +64,14 @@ export const categoriesColumns: ColumnsDataTable<CategoryRow>[] = [
   },
   {
     header: "Market Cap",
-    cellClassName: "price-cell",
+    headClassName: "min-w-36",
+    cellClassName: "price-cell min-w-36",
     cell: (category) => formatCurrency(category.market_cap),
   },
   {
     header: "24h Volume",
-    cellClassName: "price-cell",
+    headClassName: "min-w-36",
+    cellClassName: "price-cell min-w-36",
     cell: (category) => formatCurrency(category.volume_24h),
   },
 ];

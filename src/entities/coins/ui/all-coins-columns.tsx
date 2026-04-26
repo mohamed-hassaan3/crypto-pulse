@@ -7,55 +7,74 @@ import {
   formatCurrency,
   formatPercentage,
 } from "@/shared/lib/format";
+import Link from "next/link";
 
 export const allCoinsColumns: ColumnsDataTable<AllCoinsRow>[] = [
   {
     header: "#",
-    cellClassName: "name-cell",
+    headClassName: "sticky left-0 z-40 min-w-12 bg-dark-400",
+    cellClassName:
+      "rank-cell cell sticky left-0 z-20 min-w-12 bg-(--primary-color)",
     cell: (coin) => {
       return <p>{coin.market_cap_rank}</p>;
     },
   },
   {
     header: "Coin",
-    cellClassName: "name-cell",
+    headClassName: "sticky left-12 z-40 min-w-64 bg-dark-400",
+    cellClassName:
+      "coins-cell cell sticky left-12 z-20 min-w-64 bg-(--primary-color)",
     cell: (coin) => {
       return (
-        <div className="flex items-center gap-2">
-          <Image src={coin.image} width={24} height={24} alt={coin.name} />
-          <p className="font-semibold text-[16px]">{coin.name}</p>
-          <p className="opacity-50">{coin.symbol.toUpperCase()}</p>
-        </div>
+        <Link
+          href={`/coins/${coin.id}`}
+          className="flex gap-0.5 max-w-40 items-center gap-2 overflow-hidden"
+        >
+          <Image src={coin.image} width={20} height={20} alt={coin.name} />
+          <p className="truncate text-[14px] font-semibold">{coin.name}</p>
+          <p className="shrink-0 text-xs opacity-50">
+            {coin.symbol.toUpperCase()}
+          </p>
+        </Link>
       );
     },
   },
   {
     header: "Price",
-    cellClassName: "name-cell",
+    headClassName: "min-w-22",
+    cellClassName: "price-cell cell min-w-22",
     cell: (coin) => {
-      return <p>${formatCurrency(coin.current_price)}</p>;
+      return <p>{formatCurrency(coin.current_price)}</p>;
     },
   },
   {
     header: "1h",
-    cellClassName: "name-cell",
+    headClassName: "min-w-24",
+    cellClassName: "rate-cell cell min-w-24",
     cell: (coin) => {
-      const isRatingUp = coin.price_change_percentage_24h > 0;
+      const isRatingUp = coin.price_change_percentage_1h_in_currency > 0;
       return (
-        <p className={`flex ${isRatingUp ? "text-green-500" : "text-red-500"}`}>
+        <p
+          className={`flex gap-0.5 ${isRatingUp ? "text-green-500" : "text-red-500"}`}
+        >
           {isRatingUp ? <TrendingUp size={16} /> : <TrendingDown size={16} />}{" "}
-          <span>{formatPercentage(coin.price_change_percentage_24h)}</span>
+          <span>
+            {formatPercentage(coin.price_change_percentage_1h_in_currency)}
+          </span>
         </p>
       );
     },
   },
   {
     header: "24h",
-    cellClassName: "name-cell",
+    headClassName: "min-w-24",
+    cellClassName: "rate-cell cell min-w-24",
     cell: (coin) => {
       const isRatingUp = coin.price_change_percentage_24h > 0;
       return (
-        <p className={`flex ${isRatingUp ? "text-green-500" : "text-red-500"}`}>
+        <p
+          className={`flex gap-0.5 ${isRatingUp ? "text-green-500" : "text-red-500"}`}
+        >
           {isRatingUp ? <TrendingUp size={16} /> : <TrendingDown size={16} />}{" "}
           <span>{formatPercentage(coin.price_change_percentage_24h)}</span>
         </p>
@@ -64,54 +83,68 @@ export const allCoinsColumns: ColumnsDataTable<AllCoinsRow>[] = [
   },
   {
     header: "7d",
-    cellClassName: "name-cell",
+    headClassName: "min-w-24",
+    cellClassName: "rate-cell cell min-w-24",
     cell: (coin) => {
-      const isRatingUp = coin.price_change_percentage_24h > 0;
+      const isRatingUp = coin.price_change_percentage_7d_in_currency > 0;
       return (
-        <p className={`flex ${isRatingUp ? "text-green-500" : "text-red-500"}`}>
+        <p
+          className={`flex gap-0.5 ${isRatingUp ? "text-green-500" : "text-red-500"}`}
+        >
           {isRatingUp ? <TrendingUp size={16} /> : <TrendingDown size={16} />}{" "}
-          <span>{formatPercentage(coin.price_change_percentage_24h)}</span>
+          <span>
+            {formatPercentage(coin.price_change_percentage_7d_in_currency)}
+          </span>
         </p>
       );
     },
   },
   {
     header: "30d",
-    cellClassName: "name-cell",
+    headClassName: "min-w-24",
+    cellClassName: "rate-cell cell min-w-24",
     cell: (coin) => {
-      const isRatingUp = coin.price_change_percentage_24h > 0;
+      const isRatingUp = coin.price_change_percentage_30d_in_currency > 0;
       return (
-        <p className={`flex ${isRatingUp ? "text-green-500" : "text-red-500"}`}>
+        <p
+          className={`flex gap-0.5 ${isRatingUp ? "text-green-500" : "text-red-500"}`}
+        >
           {isRatingUp ? <TrendingUp size={16} /> : <TrendingDown size={16} />}{" "}
-          <span>{formatPercentage(coin.price_change_percentage_24h)}</span>
+          <span>
+            {formatPercentage(coin.price_change_percentage_30d_in_currency)}
+          </span>
         </p>
       );
     },
   },
   {
     header: "24 Volume",
-    cellClassName: "name-cell",
+    headClassName: "min-w-40",
+    cellClassName: "val-cell cell min-w-40",
     cell: (coin) => {
-      return <p>${formatCurrency(coin.total_volume)}</p>;
+      return <p>{formatCurrency(coin.total_volume)}</p>;
     },
   },
   {
     header: "Circulating Supply",
-    cellClassName: "name-cell",
+    headClassName: "min-w-44",
+    cellClassName: "supply-cell cell min-w-44",
     cell: (coin) => {
       return <p>{formatCurrency(coin.circulating_supply)}</p>;
     },
   },
   {
     header: "Total Supply",
-    cellClassName: "name-cell",
+    headClassName: "min-w-22",
+    cellClassName: "total-cell cell min-w-22",
     cell: (coin) => {
       return <p>{formatCompactNumber(coin.total_supply)}</p>;
     },
   },
   {
     header: "Market Cap",
-    cellClassName: "name-cell",
+    headClassName: "min-w-40",
+    cellClassName: "market-cell cell min-w-40",
     cell: (coin) => {
       return <p>{formatCurrency(coin.market_cap)}</p>;
     },

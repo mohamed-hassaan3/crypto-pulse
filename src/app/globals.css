@@ -202,10 +202,10 @@ header {
   background: #171a34;
 }
 .heading-title {
-  @apply text-xl md:text-2xl font-semibold mb-2 px-5;
+  @apply text-xl md:text-2xl font-semibold mt-2 px-5;
 }
 .sub-heading-title {
-  @apply text-sm md:text-lg mb-2 px-5 text-neutral-500;
+  @apply text-sm md:text-[16px] font-thin mb-6 px-5 text-neutral-500;
 }
 @utility no-scrollbar {
   /* Chrome, Safari and Opera */
@@ -424,4 +424,10 @@ header {
       @apply flex gap-1 items-center text-sm font-medium;
     }
   }
+}
+
+/* All Coins Table */
+
+#all-coins-table {
+  @apply font-bold border lg:col-span-3 col-span-1  bg-(--primary-color) rounded-sm;
 }

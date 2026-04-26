@@ -3,14 +3,15 @@
 import { fetcher } from "@/shared/api/fetcher";
 import { AllCoinsRow } from "../model/types";
 
-export const allCoins = async (percentagePeriod: string) => {
+export const allCoins = async () => {
   try {
     return await fetcher<AllCoinsRow[]>({
-      endpoint: "coins/markets",
+      endpoint:
+        "coins/markets?vs_currency=usd&price_change_percentage=1h,24h,7d,30d",
       params: {
-        price_change_percentage: percentagePeriod,
+        // price_change_percentage: percentagePeriod,
         precision: "full",
-        vs_currency: "usd",
+        // vs_currency: "usd",
       },
     });
   } catch (err) {

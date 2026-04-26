@@ -5,11 +5,12 @@ export const TopCategories = async () => {
   const result = await getTopCategories();
   return (
     <div>
-      <h4>Top Categories</h4>
+      <h4 className="heading-title">Top Categories</h4>
       <DataTable
         columns={categoriesColumns}
         data={result.slice(0, 100) ?? []}
         rowKey={(category) => category.id}
+        containerClassName="max-h-[75vh]"
         tableClassName="category-cell"
         headerCellClassName="py-3!"
         bodyCellClassName="py-2!"

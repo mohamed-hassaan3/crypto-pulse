@@ -2,7 +2,10 @@ import { allCoins } from "@/entities/coins";
 import { AllCoinsTable } from "@/widgets";
 
 export const Coins = async () => {
-  const coinsData = await allCoins("1h");
+  const coinsData = await allCoins();
+  /*   const rate24h = await allCoins("24h")
+  const rate7d = await allCoins("7d")
+  const rate30d = await allCoins("30d") */
   console.log(coinsData);
   return (
     <article>
@@ -10,7 +13,7 @@ export const Coins = async () => {
       <p className="sub-heading-title ">
         View a full list of active cryptocurrencies
       </p>
-      <div>
+      <div id="all-coins-table">
         <AllCoinsTable coinsData={coinsData ?? []} />
       </div>
     </article>
