@@ -204,6 +204,9 @@ header {
 .heading-title {
   @apply text-xl md:text-2xl font-semibold mb-2 px-5;
 }
+.sub-heading-title {
+  @apply text-sm md:text-lg mb-2 px-5 text-neutral-500;
+}
 @utility no-scrollbar {
   /* Chrome, Safari and Opera */
   &::-webkit-scrollbar {

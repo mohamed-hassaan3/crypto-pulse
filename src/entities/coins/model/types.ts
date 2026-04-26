@@ -182,6 +182,7 @@ export interface TrendingCoinRow {
   };
 }
 
+// Categories
 export interface CategoryRow {
   id: number;
   name: string;
@@ -190,4 +191,19 @@ export interface CategoryRow {
   market_cap: number;
   volume_24h: number;
   top_3_coins_id: string[];
+}
+
+// All Coins
+export interface AllCoinsRow {
+  id: number;
+  name: string;
+  image: string;
+  market_cap_rank: number;
+  total_volume: number;
+  market_cap: number;
+  circulating_supply: number;
+  total_supply: number;
+  price_change_percentage_24h: number;
+  symbol: string;
+  current_price: number;
 }
