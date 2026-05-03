@@ -135,7 +135,6 @@ body {
     @apply font-sans;
   }
   header {
-    padding: 24px;
     margin-bottom: 12px;
   }
   footer {
@@ -148,23 +147,85 @@ body {
   }
 }
 
+@keyframes render-rise {
+  from {
+    opacity: 0;
+    transform: translateY(14px) scale(0.99);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes panel-pop {
+  from {
+    opacity: 0;
+    transform: translateY(-6px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes nav-glow {
+  0%,
+  100% {
+    box-shadow: 0 0 0 rgba(34, 197, 94, 0);
+  }
+  50% {
+    box-shadow: 0 0 22px rgba(34, 197, 94, 0.16);
+  }
+}
+
+.render-motion {
+  animation: render-rise 420ms ease-out both;
+}
+
+.site-header {
+  @apply sticky top-0 z-50 flex min-h-20 flex-col gap-4 border-b border-dark-400 bg-background/90 px-4 py-4 backdrop-blur-xl sm:px-6 lg:flex-row lg:items-center lg:justify-between lg:gap-6;
+}
+
+.brand-link {
+  @apply flex min-w-0 items-center gap-3 text-xl font-extrabold text-white transition-colors hover:text-neutral-300;
+}
+
+.brand-mark {
+  @apply flex size-9 shrink-0 items-center justify-center rounded-sm border border-green-500/30 bg-green-500/10 text-green-400;
+  animation: nav-glow 3s ease-in-out infinite;
+}
+
+.main-nav {
+  @apply flex h-10 shrink-0 items-center gap-1 rounded-sm border border-dark-400 bg-(--primary-color) p-1;
+}
+
+.nav-link {
+  @apply flex h-8 items-center gap-2 rounded-sm px-3 text-sm font-medium text-neutral-400 transition-all hover:bg-neutral-800 hover:text-white;
+}
+
+.nav-link.is-active {
+  @apply bg-white text-neutral-950 shadow-sm hover:bg-white hover:text-neutral-950;
+}
+
+.search-input {
+  @apply mx-0 hidden h-10 w-full rounded-sm border border-dark-400 bg-(--primary-color) px-4 pr-10 text-sm text-neutral-200 outline-0 transition-all placeholder:italic placeholder:text-neutral-600 focus:border-green-500/60 focus:ring-2 focus:ring-green-500/10 sm:block sm:w-[250px] md:w-[400px] lg:w-[520px] xl:w-[600px];
+}
+
+.search-results-panel {
+  @apply absolute top-12 left-0 z-50 hidden max-h-96 w-full origin-top overflow-y-auto rounded-sm border border-dark-400 bg-(--primary-color) shadow-2xl shadow-black/30 sm:block;
+  animation: panel-pop 160ms ease-out both;
+}
+
+.search-result-item {
+  @apply flex w-full items-center gap-3 px-4 py-3 text-left text-sm text-neutral-300 transition-all hover:bg-neutral-800 hover:text-white;
+}
+
 header {
-  @apply border-b border-dark-400 h-20;
+  @apply border-b border-dark-400;
 
   a {
     @apply mb-0;
-  }
-
-  nav {
-    @apply flex h-full items-center;
-
-    .nav-link {
-      @apply px-6 py-5 flex items-center transition-all hover:text-neutral-500 font-medium h-full text-white cursor-pointer;
-    }
-
-    .nav-link.is-active {
-      @apply text-neutral-500  underline;
-    }
   }
 }
 @layer components {

@@ -184,7 +184,7 @@ export interface TrendingCoinRow {
 
 // Categories
 export interface CategoryRow {
-  id: number;
+  id: string;
   name: string;
   top_3_coins: string[];
   market_cap_change_24h: number;
@@ -195,7 +195,7 @@ export interface CategoryRow {
 
 // All Coins
 export interface AllCoinsRow {
-  id: number;
+  id: string;
   name: string;
   image: string;
   market_cap_rank: number;

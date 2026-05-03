@@ -1,6 +1,6 @@
 "use server";
 
-import { fetcher } from "@/shared/api/fetcher";
+import { fetcher } from "@/shared";
 import { AllCoinsRow } from "../model/types";
 
 export const allCoins = async () => {

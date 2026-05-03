@@ -1,4 +1,4 @@
-import { fetcher } from "@/shared/api/fetcher";
+import { fetcher } from "@/shared";
 import type { CategoryRow } from "../model/types";
 
 export const getTopCategories = async (): Promise<CategoryRow[]> => {
