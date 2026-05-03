@@ -1,5 +1,7 @@
 export { Landing } from "./landing";
 export { CoinId } from "./coin-id";
+export { CategoryId } from "./category-id";
+export { NftId } from "./nft-id";
 export { Coins } from "./all-coins";
 export { CoinIdFallback } from "./coin-id";
 export { CoinOverviewFallback } from "./landing/ui/fallback";
